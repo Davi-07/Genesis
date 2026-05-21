@@ -1,0 +1,424 @@
+/* =========================================
+       Variáveis de Tema (Cores e Fontes)
+       ========================================= */
+:root {
+    --background: #0a0a0a;
+    --foreground: #ffffff;
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+    --border: #262626;
+    --muted-foreground: #a3a3a3;
+
+    --font-inter: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 80px;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter);
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* =========================================
+       Animações (Substituindo Framer Motion)
+       ========================================= */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+/* =========================================
+       Navbar
+       ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    transition: all 0.5s ease;
+    background: transparent;
+}
+
+.navbar.scrolled {
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem; 
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    height: 70px; 
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container img {
+    height: 100%; 
+    width: auto;
+    object-fit: contain; 
+}
+
+
+.nav-links {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+    }
+
+    .nav-container {
+        padding: 2rem 2.5rem;
+    }
+}
+
+.nav-link {
+    color: var(--muted-foreground);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.mobile-toggle {
+    display: block;
+    color: var(--border);
+}
+
+@media (min-width: 768px) {
+    .mobile-toggle {
+        display: none;
+    }
+}
+
+.mobile-menu {
+    display: none;
+    background: var(--foreground);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    transition: all 0.5s ease;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.mobile-menu.open {
+    display: flex;
+}
+
+.mobile-menu .nav-link {
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.75rem 2rem;
+}
+
+.mobile-menu.scrolled{
+    background: var(--background);
+}
+
+/* =========================================
+       Main Content Layout
+       ========================================= */
+
+section {
+    padding: 4rem 1.5rem; /* Padding base para mobile */
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 6rem 2.5rem; 
+    }
+}
+
+/* =========================================
+       Hero Section
+       ========================================= */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 1.5rem 3rem;
+    background-color: var(--foreground);
+    color: var(--background);
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding: 1.25rem 5rem 1.25rem;
+    }
+}
+
+.hero-tag {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.hero-title {
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+}
+
+.hero-title span {
+    color: var(--muted-foreground);
+}
+
+.hero-desc {
+    margin-top: 2rem;
+    max-width: 32rem;
+    color: var(--background);
+    font-size: 1.125rem;
+}
+
+.hero-buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btn {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--muted-foreground);
+    color: var(--primary-foreground);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+    color: var(--background);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--muted-foreground);
+    animation: bounce 2s infinite;
+}
+
+/* =========================================
+       Seções Genéricas (Títulos)
+       ========================================= */
+.section-tag {
+    font-weight: bold;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    color: var(--primary);
+    letter-spacing: 0.1em;
+}
+.section-title {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-top: 0.5rem;
+}
+
+/* =========================================
+       Services Section
+       ========================================= */
+.services {
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.service-card {
+    border: 1px solid var(--border);
+    background-color: rgba(10, 10, 10, 0.5);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: border-color 0.3s ease;
+}
+
+.service-card:hover {
+    border-color: var(--primary);
+}
+
+.service-icon {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.service-card p {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.service-card .details {
+    font-size: 0.8rem;
+    color: #666;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+}
+
+/* =========================================
+       Portfolio Section
+       ========================================= */
+
+.portfolio{
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.project-card {
+    position: relative;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    transition: all 0.5s ease;
+    background: rgba(10, 10, 10, 0.4);
+}
+
+.project-card:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.project-label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    color: var(--muted-foreground);
+}
+
+.project-metric {
+    font-size: clamp(1.875rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--primary);
+    margin: 1.5rem 0;
+}
+
+.project-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.project-desc {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+}
+
+.project-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--primary);
+    transition: width 0.7s ease;
+}
+
+.project-card:hover .project-line {
+    width: 100%;
+}

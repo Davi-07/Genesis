@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="genesis.jpg-removebg-preview.png" alt="">
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="nav-links">
+                <a href="#services" class="nav-link">MÓDULOS</a>
+                <a href="#portfolio" class="nav-link">PORTFÓLIO</a>
+                <a href="#about" class="nav-link">SOBRE</a>
+                <a href="#contact" class="nav-link">CONTATO</a>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle" id="menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="icon-menu">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu" id="mobile-menu">
+            <a href="#services" class="nav-link mobile-link">MÓDULOS</a>
+            <a href="#portfolio" class="nav-link mobile-link">PORTFÓLIO</a>
+            <a href="#about" class="nav-link mobile-link">SOBRE</a>
+            <a href="#contact" class="nav-link mobile-link">CONTATO</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <h1 class="hero-title fade-up" style="transition-delay: 0.4s;">
+                SISTEMAS QUE<br>
+                <span>FAZEM</span><br>
+                CRESCER.
+            </h1>
+            <p class="hero-desc fade-up" style="transition-delay: 0.8s;">
+                Desenvolvemos sistemas de TI exclusivos para o seu negócio. Da ideia ao deploy — soluções digitais que
+                evoluem com a sua empresa.
+            </p>
+            <div class="hero-buttons fade-up" style="transition-delay: 1.1s;">
+                <button class="btn btn-primary"
+                    onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">REQUISITAR
+                    DIAGNÓSTICO</button>
+                <button class="btn btn-outline"
+                    onclick="document.querySelector('#services').scrollIntoView({behavior: 'smooth'})">EXPLORAR
+                    SISTEMAS</button>
+            </div>
+
+            <div class="scroll-indicator fade-up" style="transition-delay: 2s;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="fade-up">
+                <span class="section-tag">MÓDULOS</span>
+                <h2 class="section-title">Engenharia de Serviços</h2>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card fade-up">
+                    <svg class="service-icon" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                        <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                        <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                    </svg>
+                    <h3>Sistemas Core</h3>
+                    <p>Desenvolvemos o coração digital da sua empresa com arquiteturas escaláveis e resilientes.</p>
+                    <div class="details">ERP, CRM, automação de processos internos — sob medida para sua operação.</div>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card fade-up">
+                    <svg class="service-icon" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                    </svg>
+                    <h3>Infraestrutura Cloud</h3>
+                    <p>Migração e otimização de ecossistemas complexos para performance máxima.</p>
+                    <div class="details">AWS, Azure, GCP — monitoramento, escalabilidade e custos otimizados.</div>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card fade-up">
+                    <svg class="service-icon" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z">
+                        </path>
+                        <path
+                            d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z">
+                        </path>
+                    </svg>
+                    <h3>Inteligência Aplicada</h3>
+                    <p>Integração de modelos de decisão automatizada em fluxos de trabalho legados.</p>
+                    <div class="details">Machine learning, análise preditiva e automação inteligente de processos.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio" id="portfolio">
+            <div class="fade-up">
+                <span class="section-tag">PORTFÓLIO</span>
+                <h2 class="section-title">Resultados de Impacto</h2>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="project-card fade-up" style="transition-delay: 0.1s;">
+                    <span class="project-label">FINANÇAS</span>
+                    <div class="project-metric">+340% eficiência</div>
+                    <h3 class="project-title">Sistema de Gestão Financeira</h3>
+                    <p class="project-desc">Plataforma integrada para controle financeiro corporativo com automação de
+                        relatórios e compliance.</p>
+                    <div class="project-line"></div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card fade-up" style="transition-delay: 0.25s;">
+                    <span class="project-label">LOGÍSTICA</span>
+                    <div class="project-metric">-65% tempo de entrega</div>
+                    <h3 class="project-title">Hub de Rastreamento Inteligente</h3>
+                    <p class="project-desc">Sistema de rastreamento em tempo real com otimização de rotas via
+                        inteligência artificial.</p>
+                    <div class="project-line"></div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card fade-up" style="transition-delay: 0.4s;">
+                    <span class="project-label">SAÚDE</span>
+                    <div class="project-metric">99.9% uptime</div>
+                    <h3 class="project-title">Prontuário Eletrônico Unificado</h3>
+                    <p class="project-desc">Infraestrutura crítica para gestão de dados clínicos com alta
+                        disponibilidade e segurança LGPD.</p>
+                    <div class="project-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Espaços de fallback para About / Contact -->
+        <section id="about"></section>
+        <section id="contact"></section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
