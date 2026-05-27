@@ -84,6 +84,10 @@ button {
     border-bottom: 1px solid var(--border);
 }
 
+.nav-link.is-active {
+    color: var(--primary);
+}
+
 .nav-container {
     display: flex;
     align-items: center;
@@ -539,47 +543,55 @@ section {
 .about-description-row {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    justify-content: space-between;
+    gap: 4rem; /* Um respiro um pouco maior entre texto e imagem */
+}
+
+/* Novo contêiner de texto que criamos no HTML */
+.about-text-content {
+    flex: 1.2; /* Dá um pouco mais de peso para o texto */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaço entre os parágrafos */
 }
 
 .about-text {
-    width: 50%;
-    flex: 1;
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.6; /* Corrigido de "bold" para um valor numérico */
     color: #333;
 }
 
+#about-text {
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
 .about-logo-wrap {
-    width: 50%;
-    flex-shrink: 0;
+    flex: 1; /* Ocupa o resto do espaço */
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 550px; /* Limite máximo para a imagem não ficar gigante em telas ultrawide */
 }
 
-.about-logo-wrap img{
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-}
-
+/* Removemos as duplicatas e limpamos a regra da imagem */
 .about-logo-img {
     width: 100%;
-    max-width: 300px;
     height: auto;
+    max-width: 100%; /* Agora ela é livre para crescer até o limite do wrapper (550px) */
     object-fit: contain;
 }
 
+/* Responsividade para Celulares e Tablets menores */
 @media (max-width: 767px) {
     .about-description-row {
-        flex-direction: column;
+        flex-direction: column; /* Empilha texto em cima e imagem embaixo */
         text-align: center;
-        gap: 2rem;
+        gap: 3rem;
     }
 
-    .about-logo-img {
-        width: 130px;
+    .about-logo-wrap {
+        max-width: 80%; /* Garante que a imagem tenha um tamanho bom no mobile */
     }
 }
 
@@ -640,7 +652,6 @@ section {
     gap: 2rem;
     justify-content: center;
     align-items: center;
-    border-top: 1px solid #eeeeee;
     padding-top: 2rem;
 }
 
@@ -670,5 +681,5 @@ section {
 
 .contact {
     margin: 0 auto;
-    width: 100%;
+    max-width: 1400px;
 }
