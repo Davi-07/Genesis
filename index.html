@@ -22,9 +22,9 @@
 
             <!-- Desktop Nav -->
             <nav class="nav-links">
+                <a href="#about" class="nav-link">SOBRE</a>
                 <a href="#services" class="nav-link">MÓDULOS</a>
                 <a href="#portfolio" class="nav-link">PORTFÓLIO</a>
-                <a href="#about" class="nav-link">SOBRE</a>
                 <a href="#contact" class="nav-link">CONTATO</a>
             </nav>
 
@@ -41,9 +41,9 @@
 
         <!-- Mobile Menu -->
         <nav class="mobile-menu" id="mobile-menu">
+            <a href="#about" class="nav-link mobile-link">SOBRE</a>
             <a href="#services" class="nav-link mobile-link">MÓDULOS</a>
             <a href="#portfolio" class="nav-link mobile-link">PORTFÓLIO</a>
-            <a href="#about" class="nav-link mobile-link">SOBRE</a>
             <a href="#contact" class="nav-link mobile-link">CONTATO</a>
         </nav>
     </header>
@@ -60,7 +60,8 @@
                         CRESCER.
                     </h1>
                     <p class="hero-desc fade-up" style="transition-delay: 0.8s;">
-                        Desenvolvemos sistemas de TI exclusivos para o seu negócio. Da ideia ao deploy — soluções digitais que
+                        Desenvolvemos sistemas de TI exclusivos para o seu negócio. Da ideia ao deploy — soluções
+                        digitais que
                         evoluem com a sua empresa.
                     </p>
                     <div class="hero-buttons fade-up" style="transition-delay: 1.1s;">
@@ -70,14 +71,49 @@
                         <button class="btn btn-outline"
                             onclick="document.querySelector('#services').scrollIntoView({behavior: 'smooth'})">EXPLORAR
                             SISTEMAS</button>
-                    </div >
+                    </div>
                 </div>
-            
+
                 <div class="hero-graph-container fade-up" style="transition-delay: 0.6s;">
                     <img src="grafico.png" alt="Gráfico de Crescimento Genesis" class="hero-graph-image">
                 </div>
             </div>
         </section>
+
+        <!--About Section-->
+        <section id="about" class="about">
+            <div class="about-container">
+                <!-- HEADER DA SEÇÃO -->
+                <div class="fade-up">
+                    <span class="section-tag">SOBRE</span>
+                    <h2 class="section-title">Conheça nossa Empresa</h2>
+                </div>
+
+                <!-- DESCRIÇÃO COM IMAGEM AO LADO -->
+                <div class="fade-up about-description-row">
+                    <p class="about-text">
+                        Focados em empresas de pequeno e médio porte que muitas vezes não contam com um departamento de
+                        TI exclusivo. Atuamos em vários segmentos do mercado como: indústria, escritórios de
+                        contabilidade, advocacia, comércio, frigoríficos, engenharia, medicina e diagnóstico.
+                    </p>
+                    <div class="about-logo-wrap">
+                        <img src="pc.png" alt="Genesis Logo" class="about-logo-img">
+                    </div>
+                </div>
+                <!-- LOGOS DE TECNOLOGIAS -->
+                <div class="trusted-logos-authoritative">
+                    <div id="about-text">Tecnologias que trabalhamos:</div>
+                    <div id="logos-about">
+                        <img src="logo-php.png" alt="Php" class="trust-logo">
+                        <img src="logo-python.png" alt="Python" class="trust-logo">
+                        <img src="logo-c.png" alt="C#" class="trust-logo">
+                        <img src="logo-node.png" alt="Node" class="trust-logo">
+                        <img src="logo-mysql.png" alt="MySql" class="trust-logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- Services Section -->
         <section class="services" id="services">
@@ -137,7 +173,8 @@
 
             <div class="portfolio-grid">
                 <!-- Project 1 -->
-                <a href="https://bar-do-kim.vercel.app/" target="_blank" class="project-card fade-up" style="transition-delay: 0.1s;">
+                <a href="https://bar-do-kim.vercel.app/" target="_blank" class="project-card fade-up"
+                    style="transition-delay: 0.1s;">
                     <!-- <span class="project-label">SITE</span> -->
                     <div class="project-image"><img src="bar-do-kim.png" alt="Projeto Bar do Kim"></div>
                     <div class="project-metric">Bar do Kim</div>
@@ -149,9 +186,19 @@
             </div>
         </section>
 
-        <!-- Espaços de fallback para About / Contact -->
-        <section id="about"></section>
-        <section id="contact"></section>
+        <section class="contact" id="contact">
+            <div class="contact-container">
+                <!-- HEADER DA SEÇÃO -->
+                <div class="fade-up">
+                    <span class="section-tag">CONTATO</span>
+                    <h2 class="section-title">Entre em contato conosco</h2>
+                </div>
+
+                <!-- DESCRIÇÃO COM IMAGEM AO LADO -->
+                
+            </div>
+
+        </section>
 
     </main>
 

@@ -301,6 +301,7 @@ section {
 }
 
 @media (max-width: 1024px) {
+
     .hero-graph-image {
         width: 0;
     }
@@ -431,6 +432,7 @@ section {
 
 .portfolio-grid {
     display: grid;
+    flex-wrap: wrap;
     align-items: center;
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -444,6 +446,8 @@ section {
 }
 
 .project-card {
+    width: 100%;
+    max-width: 350px;
     position: relative;
     border: 1px solid var(--border);
     padding: 2rem;
@@ -511,5 +515,160 @@ section {
 }
 
 .project-card:hover .project-line {
+    width: 100%;
+}
+
+/* =========================================
+       About Section
+       ========================================= */
+.about {
+    background-color: var(--foreground);
+    color: var(--background);
+    max-width: 100%;
+}
+
+.about-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Linha: texto + imagem lado a lado */
+.about-description-row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-text {
+    width: 50%;
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.about-logo-wrap {
+    width: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-logo-wrap img{
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+
+.about-logo-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 767px) {
+    .about-description-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .about-logo-img {
+        width: 130px;
+    }
+}
+
+/* --- COLUNA B: MÉTRICAS E LOGOS --- */
+
+.stats-title-authoritative {
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.stats-grid-authoritative {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 600px) {
+    .stats-grid-authoritative {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.stat-card-authoritative {
+    background-color: #fcfcfc;
+    border: 1px solid #eeeeee;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.stat-card-authoritative:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.stat-number-authoritative {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.stat-desc-authoritative {
+    font-size: 0.9rem;
+    color: var(--color-text-subtle);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Área de Logos */
+.trusted-logos-authoritative {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #eeeeee;
+    padding-top: 2rem;
+}
+
+#logos-about {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;         /* Permite que as logos pulem de linha se não couberem na tela */
+    justify-content: center; /* Mantém todas centralizadas */
+    align-items: center;
+    gap: 3rem;               /* Define um espaçamento igual e elegante entre as logos */
+    margin-top: 1rem;
+}
+
+.trust-logo {
+    height: 40px;            /* Aumentado levemente de 30px para dar mais presença */
+    width: auto;
+    filter: grayscale(100%); 
+    opacity: 0.6;
+    transition: all 0.3s ease; /* Transition para animar opacidade e filtro juntos */
+}
+
+.trust-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: translateY(-3px); /* Efeito sutil de flutuação */
+}
+
+.contact {
+    margin: 0 auto;
     width: 100%;
 }
