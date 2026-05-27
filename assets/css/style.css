@@ -305,9 +305,8 @@ section {
 }
 
 @media (max-width: 1024px) {
-
-    .hero-graph-image {
-        width: 0;
+    .hero-graph-container {
+        display: none;
     }
 }
 
@@ -437,6 +436,7 @@ section {
 .portfolio-grid {
     display: grid;
     flex-wrap: wrap;
+    justify-items: center;
     align-items: center;
     grid-template-columns: 1fr;
     gap: 1.5rem;
