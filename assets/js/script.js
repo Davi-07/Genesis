@@ -1,5 +1,4 @@
 // ==========================================
-// ==========================================
 // Navbar Lógica (Scroll e Mobile Menu)
 // ==========================================
 const navbar = document.getElementById('navbar');
@@ -11,22 +10,15 @@ const sections = document.querySelectorAll('section');
 function atualizarIconeMenu() {
     const isScrolled = window.scrollY > 20;
     const isOpen = mobileMenu.classList.contains('open');
-
-    // Define a cor: muted-foreground se escrolado, currentColor se não
     const strokeColor = isScrolled ? 'var(--muted-foreground)' : 'currentColor';
 
     if (isOpen) {
-        // Ícone de Fechar (X)
-        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${strokeColor}" stroke-width="2"      stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></   line></svg>`;
+        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${strokeColor}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
     } else {
-        // Ícone de Menu (Sanduíche)
-        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${strokeColor}" stroke-width="2"      stroke-linecap="round" stroke-linejoin="round" class="icon-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6"   x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+        menuBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${strokeColor}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
     }
 }
 
-
-
-// Mudar fundo do Navbar no scroll
 window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
         navbar.classList.add('scrolled');
@@ -36,12 +28,9 @@ window.addEventListener('scroll', () => {
         mobileMenu.classList.remove('scrolled');
     }
 
-    // Atualiza o ícone sempre que rolar a página
     atualizarIconeMenu();
 
-
     let currentSectionId = '';
-
     sections.forEach(section => {
         if (window.scrollY >= section.offsetTop - 150) {
             currentSectionId = section.getAttribute('id');
@@ -56,24 +45,17 @@ window.addEventListener('scroll', () => {
     });  
 });
 
-// Toggle Menu Mobile
 menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('open');
-
-    // Atualiza o ícone sempre que clicar no botão
     atualizarIconeMenu();
 });
 
-// Smooth scroll para todos os links e fechar mobile menu ao clicar
 allNavLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-
-        // Fechar menu mobile
         mobileMenu.classList.remove('open');
         atualizarIconeMenu();
 
-        // Smooth scroll
         const targetId = link.getAttribute('href');
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
@@ -86,7 +68,6 @@ allNavLinks.forEach(link => {
 // Intersection Observer (Animações de entrada)
 // ==========================================
 const fadeUpElements = document.querySelectorAll('.fade-up');
-
 const appearOptions = {
     threshold: 0.15,
     rootMargin: "0px 0px -50px 0px"
@@ -96,7 +77,6 @@ const appearOnScroll = new IntersectionObserver(function (entries, observer) {
     entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
-        // Para a animação rodar apenas uma vez (como viewport={{ once: true }} no Framer Motion)
         observer.unobserve(entry.target);
     });
 }, appearOptions);
@@ -105,7 +85,6 @@ fadeUpElements.forEach(el => {
     appearOnScroll.observe(el);
 });
 
-// Disparar observer imediatamente para elementos do topo (Hero)
 setTimeout(() => {
     fadeUpElements.forEach(el => {
         const rect = el.getBoundingClientRect();
@@ -114,6 +93,47 @@ setTimeout(() => {
         }
     });
 }, 100);
+
+
+// ==========================================
+// Máscara de Telefone (Ghost Text)
+// ==========================================
+const MASK = '(00) 00000-0000';
+const phoneInput = document.getElementById('phone');
+const ghostTyped = document.getElementById('ghost-typed');
+const ghostRemaining = document.getElementById('ghost-remaining');
+const phoneStatus = document.getElementById('phone-status');
+
+if (phoneInput && ghostTyped && ghostRemaining) {
+    function applyMask(digits) {
+        let result = '', di = 0;
+        for (let i = 0; i < MASK.length && di < digits.length; i++) {
+            result += MASK[i] === '0' ? digits[di++] : MASK[i];
+        }
+        return result;
+    }
+
+    function updateGhost(formatted) {
+        ghostTyped.textContent = MASK.slice(0, formatted.length);
+        ghostRemaining.textContent = MASK.slice(formatted.length);
+    }
+
+    phoneInput.addEventListener('input', () => {
+        const raw = phoneInput.value.replace(/\D/g, '').slice(0, 11);
+        phoneInput.value = applyMask(raw);
+        updateGhost(phoneInput.value);
+        if (phoneStatus) phoneStatus.textContent = '';
+    });
+
+    phoneInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace') {
+            e.preventDefault();
+            const newRaw = phoneInput.value.replace(/\D/g, '').slice(0, -1);
+            phoneInput.value = applyMask(newRaw);
+            updateGhost(phoneInput.value);
+        }
+    });
+}
 
 // ==========================================
 // Lógica de Envio do Formulário
@@ -128,10 +148,20 @@ if (contactForm) {
         
         const formData = {
             name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
+            // ATENÇÃO AQUI: Pegamos o valor do id="phone", mas enviamos com a chave "email" 
+            // para não quebrar a API e a Planilha que você já configurou.
+            email: document.getElementById('phone').value,
             message: document.getElementById('message').value,
             token: document.querySelector('[name="cf-turnstile-response"]')?.value 
         };
+
+        const phoneRegex = /^\(?\d{2}\)?\s?(9?\d{4})-?\d{4}$/;
+        
+        if (!phoneRegex.test(formData.email)) {
+            formStatus.innerText = 'Por favor, insira um telefone válido com DDD (ex: (31) 99999-9999).';
+            formStatus.style.color = 'red';
+            return; 
+        }
 
         if (!formData.token) {
             formStatus.innerText = 'Por favor, confirme que você não é um robô.';
@@ -154,6 +184,8 @@ if (contactForm) {
                 formStatus.innerText = 'Mensagem enviada com sucesso!';
                 formStatus.style.color = 'var(--primary)';
                 contactForm.reset();
+                // Limpa o ghost text após enviar
+                if (ghostTyped && ghostRemaining) updateGhost(''); 
             } else {
                 throw new Error('Falha no servidor');
             }

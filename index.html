@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genesis</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/genesis_logo.png" style="filter: brightness(100%);">
     <link rel="stylesheet" href="assets/css/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
@@ -207,11 +208,23 @@
 
                 <div class="contact-container fade-up">
                     <form id="contact-form" class="contact-form">
-                        <input type="text" id="name" placeholder="Seu Nome/Empresa" required>
-                        <input type="email" id="email" placeholder="Seu E-mail" required>
+                        <div class="input-row">
+                            <input type="text" id="name" placeholder="Nome/Empresa" required>
+                            <div class="input-ghost-wrapper"
+                                style="position: relative; display: flex; align-items: center;">
+                                <div id="ghost-placeholder" aria-hidden="true" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+           font-family: monospace; font-size: 15px; pointer-events: none; white-space: nowrap;">
+                                    <span id="ghost-typed" style="color: transparent;"></span><span id="ghost-remaining"
+                                        style="color: #999;">(00) 00000-0000</span>
+                                </div>
+                                <input type="tel" id="phone" maxlength="15" inputmode="numeric"
+                                    style="position: relative; z-index: 1; background: transparent; font-family: monospace;"
+                                    placeholder="" required>
+                            </div>
+                            <p id="phone-status" style="font-size: 13px; min-height: 18px;"></p>
+                        </div>
                         <textarea id="message" placeholder="Como podemos ajudar o seu negócio?" rows="5"
-                            required>
-                        </textarea>
+                            required></textarea>
                         <div class="cf-turnstile" data-sitekey="0x4AAAAAADXZ1QX38-OSFUve"></div>
                         <button type="submit" class="btn btn-primary" id="submit-btn">ENVIAR MENSAGEM</button>
                         <div id="form-status"></div>

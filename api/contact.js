@@ -41,7 +41,7 @@ export default async function handler(req, res) {
         }
 
         // 5. Retorna sucesso para o Frontend!
-        return res.status(200).json({ success: true, message: 'Mensagem enviada com sucesso!' });
+        return res.status(200).json({ success: true, message: 'Seu contato foi enviado com sucesso! Em breve entraremos em contato.' });
         
     } catch (error) {
         console.error('Erro na API:', error);

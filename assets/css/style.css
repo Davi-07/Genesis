@@ -695,3 +695,68 @@ section {
     flex-direction: column;
     gap: 1.5rem;
 }
+
+/* =========================================
+   Contact Form Elements
+   ========================================= */
+
+/* Estilização base para campos de texto */
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.4); /* Fundo semi-transparente como nos cards */
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    padding: 1rem 1.25rem;
+    font-family: var(--font-inter);
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Cor do texto de placeholder */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--muted-foreground);
+}
+
+/* Efeito ao clicar/focar no campo */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(21, 145, 234, 0.2); /* Halo azul sutil usando a cor primary */
+}
+
+/* Ajustes específicos do textarea */
+.contact-form textarea {
+    resize: vertical; /* Permite que o usuário aumente a caixa apenas na vertical */
+    min-height: 150px;
+}
+
+.input-row {
+    display: flex;
+    gap: 1.5rem;
+}   
+
+/* Alinhamento do Turnstile do Cloudflare (caso precise centralizar no mobile) */
+.cf-turnstile {
+    margin-top: 0.5rem;
+}
+
+/* Ajuste de responsividade para o botão no mobile */
+@media (max-width: 767px) {
+    .contact-form .btn-primary {
+        width: 100%;
+    }
+}
+
+/* Preparando o contêiner de status para mensagens via JavaScript */
+#form-status {
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    text-align: center;
+    margin-top: -0.5rem;
+    min-height: 1.5rem; /* Evita que o layout pule quando a mensagem aparecer */
+}
