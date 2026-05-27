@@ -114,3 +114,55 @@ setTimeout(() => {
         }
     });
 }, 100);
+
+// ==========================================
+// Lógica de Envio do Formulário
+// ==========================================
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
+const formStatus = document.getElementById('form-status');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
+            token: document.querySelector('[name="cf-turnstile-response"]')?.value 
+        };
+
+        if (!formData.token) {
+            formStatus.innerText = 'Por favor, confirme que você não é um robô.';
+            formStatus.style.color = 'red';
+            return;
+        }
+
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = 'ENVIANDO...';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                formStatus.innerText = 'Mensagem enviada com sucesso!';
+                formStatus.style.color = 'var(--primary)';
+                contactForm.reset();
+            } else {
+                throw new Error('Falha no servidor');
+            }
+        } catch (error) {
+            formStatus.innerText = 'Ocorreu um erro ao enviar. Tente novamente.';
+            formStatus.style.color = 'red';
+        } finally {
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+        }
+    });
+}

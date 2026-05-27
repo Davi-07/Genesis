@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genesis</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
@@ -72,7 +75,8 @@
                 </div>
 
                 <div class="hero-graph-container fade-up" style="transition-delay: 0.6s;">
-                    <img src="assets/img/grafico-removebg-preview.png" alt="Gráfico de Crescimento Genesis" class="hero-graph-image">
+                    <img src="assets/img/grafico-removebg-preview.png" alt="Gráfico de Crescimento Genesis"
+                        class="hero-graph-image">
                 </div>
             </div>
         </section>
@@ -90,12 +94,14 @@
                 <div class="fade-up about-description-row">
                     <div class="about-text-content">
                         <p class="about-text">
-                            Focados em empresas de pequeno e médio porte que muitas vezes não contam com um departamento de
+                            Focados em empresas de pequeno e médio porte que muitas vezes não contam com um departamento
+                            de
                             TI exclusivo. Atuamos em vários segmentos do mercado como: indústria, escritórios de
                             contabilidade, advocacia, comércio, frigoríficos, engenharia, medicina e diagnóstico.
                         </p>
                         <p class="about-text">
-                            Focados em empresas de pequeno e médio porte que muitas vezes não contam com um departamento de
+                            Focados em empresas de pequeno e médio porte que muitas vezes não contam com um departamento
+                            de
                             TI exclusivo. Atuamos em vários segmentos do mercado como: indústria, escritórios de
                             contabilidade, advocacia, comércio, frigoríficos, engenharia, medicina e diagnóstico.
                         </p>
@@ -183,7 +189,8 @@
                     <div class="project-image"><img src="assets/img/bar-do-kim.png" alt="Projeto Bar do Kim"></div>
                     <div class="project-metric">Bar do Kim</div>
                     <h3 class="project-title">Landing Page</h3>
-                    <p class="project-desc"> Contém informações sobre o cardápio, localização, contato, tudo conforme demanda do cliente.</p>
+                    <p class="project-desc"> Contém informações sobre o cardápio, localização, contato, tudo conforme
+                        demanda do cliente.</p>
                     <div class="project-line"></div>
                 </a>
             </div>
@@ -198,8 +205,19 @@
                     <h2 class="section-title">Entre em contato conosco</h2>
                 </div>
 
-                
-                
+                <div class="contact-container fade-up">
+                    <form id="contact-form" class="contact-form">
+                        <input type="text" id="name" placeholder="Seu Nome/Empresa" required>
+                        <input type="email" id="email" placeholder="Seu E-mail" required>
+                        <textarea id="message" placeholder="Como podemos ajudar o seu negócio?" rows="5"
+                            required>
+                        </textarea>
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAADXZ1QX38-OSFUve"></div>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">ENVIAR MENSAGEM</button>
+                        <div id="form-status"></div>
+                    </form>
+                </div>
+
             </div>
 
         </section>

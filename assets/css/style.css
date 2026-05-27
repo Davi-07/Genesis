@@ -683,3 +683,15 @@ section {
     margin: 0 auto;
     max-width: 1400px;
 }
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
